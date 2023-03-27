@@ -1,0 +1,45 @@
+*{
+ box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    font-family: Roboto, sans-serif;
+  }
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 52px;
+}
+
+.scoreboard{
+    display:flex;
+    justify-content: center;
+
+}
+h2 {
+    text-align: center;
+    padding: 24px;
+    margin: 16px;
+}
+
+p{
+    padding: 32px;
+    margin: 0;
+}
+
+
+button{
+    margin: 36px;
+    padding: 24px;
+    border: none;
+    background: #fff;
+}
+

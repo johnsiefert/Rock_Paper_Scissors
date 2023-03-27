@@ -1,37 +1,48 @@
-const getComputerChoice = () => {
-const randomChoice = Math.floor(Math.random()  * 3)
-if(randomChoice === 0) {
-    console.log("rock")
-}else if(randomChoice === 1){
-    console.log("paper")
-}else {
-    console.log("scissors")
-}
-};
+let player = document.getElementById('player')
+let computer = document.getElementById('computer')
+let rock = document.getElementById('rock').addEventListener('click', ()=>{playRound("rock", getComputerChoice())});
+let paper = document.getElementById('paper').addEventListener('click', ()=>{playRound("paper",getComputerChoice())});
+let scissors = document.getElementById('scissors').addEventListener('click', ()=>{playRound("scissors",getComputerChoice())});
 
-const playRound = (playerSelection, computerSelection) => {
-const select = playerSelection.toLowerCase()
-if(select === 'rock'){
-    if(computerSelection === 'paper'){
+  function getComputerChoice(){
+    let randomNumber = Math.floor(Math.random() * 3);
+    if(randomNumber === 0){
+      return "rock";
+    }else if(randomNumber === 1){
+      return "paper";
+    }else if(randomNumber ===2){
+      return "scissors";
+    }else{
+      return 'Error'
     }
-    return "Paper covers Rock. Computer wins!"
-}
-if(select === 'scissors'){
-    if(computerSelection === 'paper'){
+  };
+
+
+  function playRound (playerSelection, computerChoice)  {
+    if(playerSelection === computerChoice){
+ return console.log( "You tied!")
+  }
+  if(playerSelection === "rock"){
+    if(computerChoice === "paper"){
+    return console.log("Computer Wins!");
+    }else{
+    return console.log( "You won!")
     }
-    return "Scissors cuts paper. Player wins!"
-}
+  }
+    if(playerSelection ==="paper"){
+      if(computerChoice === "scissors"){
+      return console.log("You won!")
+      }else{
+       return console.log( "Computer Won!")
+      }
+    }
+    if(playerSelection === "scissors"){
+      if(computerChoice === "rock"){
+       return console.log("Computer Won!")
+      }else {
+         return console.log("You Won!")
+      }
+    }
+  };
 
-}
-
-const game = () => {
-    for (let i = 0; i < 5; i++) {
-playRound()
- }
-}
-
-
-const computerSelection = getComputerChoice();
-const playerSelection = prompt("Please enter rock, paper, or scissors");
-console.log(playRound(playerSelection, computerSelection))
 
